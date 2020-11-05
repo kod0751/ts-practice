@@ -1,24 +1,24 @@
 "use strict";
-class Circle {
-    constructor(radius) {
-        this.radius = radius;
+class Queue {
+    constructor() {
+        this.list = [];
     }
-    getArea() {
-        return this.radius * this.radius * Math.PI;
+    get length() {
+        return this.list.length;
     }
-}
-class Rectangle {
-    constructor(width, height) {
-        this.width = width;
-        this.height = height;
+    enqueque(item) {
+        this.list.push(item);
     }
-    getArea() {
-        return this.width * this.height;
+    dequeque() {
+        return this.list.shift();
     }
 }
-const circle = new Circle(5);
-const rectangle = new Rectangle(3, 4);
-const shape = [circle, rectangle];
-shape.forEach(shape => {
-    console.log(shape.getArea());
-});
+const queue = new Queue();
+queue.enqueque(0);
+queue.enqueque(1);
+queue.enqueque(2);
+queue.enqueque(3);
+queue.enqueque(4);
+while (queue.length > 0) {
+    console.log(queue.dequeque());
+}
